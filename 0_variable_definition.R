@@ -26,12 +26,14 @@ columns_to_exclude <- c('Sub-District', 'Community', 'School name')
 #    new_var:   name of the new column to create
 #    numerator: column in your dataset to use as numerator
 #    denominator: column in your dataset to use as denominator --> if sum is needed that create a +/- etc with the names of the columns "`C1` + `C2`"
+#    operation: "sum", "subtract", "multiply"
 #    scale:     multiply result by this (use 1 for ratios, 100 for %)
 
+##------------------ define numerator/denominator indicators (ratios) ------------------
 derived_specs <- tibble::tribble(
-  ~new_var, ~numerator,                                   ~denominator,                                                                 ~scale,
-  "PTR",    "Total number of students within the school", "`How many teaching staff were there ? Male:` + `How many teaching staff were there ? Female:`",   1,
-  "PCR",    "Total number of students within the school", list("How many total classrooms are there at this school that are functioning? (used for lessons)"), 1
+  ~new_var, ~numerator,                                   ~denominator,                                                                                                          ~operation, ~scale,
+  "PTR",    "Total number of students within the school", list(c("How many teaching staff were there ? Male:", "How many teaching staff were there ? Female:")),               "sum",      1,
+  "PCR",    "Total number of students within the school", list("How many total classrooms are there at this school that are functioning? (used for lessons)"),                 NA,         1
 )
 
 ##------------------ define binary indicators (>=1 logic) ------------------

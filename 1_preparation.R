@@ -11,6 +11,8 @@ indicator_sm <- survey[grepl("select_multiple", survey$type),]  [[var_dataset_co
 indicator_so <- survey[grepl("select_one", survey$type),]  [[var_dataset_colums]]
 indicator_int <- survey[grepl("integer", survey$type),]  [[var_dataset_colums]]
 
+
+
 # add composite indicator (PTR, PCR, etc etc) defined in 0_variable_definition
 data <- add_derived_indicators(data, derived_specs)
 indicator_int <- unique(c(indicator_int, derived_specs$new_var))

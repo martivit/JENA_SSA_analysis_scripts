@@ -2,7 +2,6 @@
 
 ## Table of Contents
 
-- [Features](#features)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Configuration](#configuration)

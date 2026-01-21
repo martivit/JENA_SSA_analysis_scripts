@@ -1,5 +1,5 @@
 # JENA/SSA Analysis Tool
-An R-based analysis pipeline for processing and analyzing School Survey Assessment (SSA) data with support for complex disaggregations, derived indicators, and formatted Excel outputs
+An R-based analysis pipeline for processing and analyzing School level Assessment data with support for complex disaggregations, derived indicators, and formatted Excel outputs
 
 ## Table of Contents
 

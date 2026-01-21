@@ -1,10 +1,4 @@
-# SSA Analysis Tool
-
-An R-based analysis pipeline for processing and analyzing School Survey Assessment (SSA) data with support for complex disaggregations, derived indicators, and formatted Excel outputs.
-
-## Overview
-
-This tool automates the analysis of survey data collected using KoBoToolbox or similar platforms. It calculates proportions, means, and custom indicators across multiple disaggregation levels, then produces formatted Excel reports with conditional sorting and styling.
+# JENA/SSA Analysis Tool
 
 ## Features
 
@@ -82,7 +76,7 @@ kobo_path = 'input/SSA_questionnaire.xlsx'
 #### Column Naming Convention
 Specify whether your dataset uses KoBoToolbox **labels** or **names**:
 ```r
-var_dataset_colums = 'label::English (en)'  # For labels
+var_dataset_colums = 'label::English (en)'  # For labels, depends on your kobotool
 # var_dataset_colums = 'name'               # For names
 ```
 
@@ -108,17 +102,9 @@ columns_to_exclude <- c('Sub-District', 'Community', 'School name')
 Calculate composite indicators like ratios:
 ```r
 derived_specs <- tibble::tribble(
-  ~new_var, ~numerator, ~denominator, ~operation, ~scale,
-  "PTR", 
-    "Total number of students within the school", 
-    list(c("Male teachers", "Female teachers")), 
-    "sum", 
-    1,
-  "PCR", 
-    "Total number of students within the school", 
-    list("Number of functioning classrooms"), 
-    NA, 
-    1
+  ~new_var, ~numerator,                                   ~denominator,                                                                                                          ~operation, ~scale,
+  "PTR",    "Total number of students within the school", list(c("How many teaching staff were there ? Male:", "How many teaching staff were there ? Female:")),               "sum",      1,
+  "PCR",    "Total number of students within the school", list("How many total classrooms are there at this school that are functioning? (used for lessons)"),                 NA,         1
 )
 ```
 
@@ -126,14 +112,11 @@ derived_specs <- tibble::tribble(
 Create Yes/No flags based on thresholds:
 ```r
 binary_specs <- tibble::tribble(
-  ~new_var, ~source, ~condition,
-  "schools_with_window_replacement_needs", 
-    "Number of windows that need replacement", 
-    ">= 1",
-  "schools_with_toilet_repair_needs", 
-    "Number of toilets that need repairs", 
-    ">= 1"
+  ~new_var,                                      ~source,                                   ~condition,
+  "schools_with_window_replacement_needs",      "Number of windows that need replacement",  ">= 1",
+  "schools_with_toilet_repair_needs",           "Number of windows that need repairs",      ">= 1"
 )
+
 ```
 
 #### Custom Answer Ordering (Optional)

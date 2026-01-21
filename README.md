@@ -1,5 +1,27 @@
 # JENA/SSA Analysis Tool
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Repository Structure](#repository-structure)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+- [Configuration](#configuration)
+  - [Step 1: Prepare Your Input Files](#step-1-prepare-your-input-files)
+  - [Step 2: Update Configuration](#step-2-update-configuration)
+- [Usage](#usage)
+  - [Running the Analysis](#running-the-analysis)
+  - [Understanding the Outputs](#understanding-the-outputs)
+- [Advanced Features](#advanced-features)
+  - [Using Names Instead of Labels](#using-names-instead-of-labels)
+  - [Custom Operations for Derived Indicators](#custom-operations-for-derived-indicators)
+  - [Excel Styling Customization](#excel-styling-customization)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+
+
 ## Features
 
 - **Flexible Indicator Types**: Handles select_one, select_multiple, and numeric (integer) questions
